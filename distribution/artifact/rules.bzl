@@ -257,7 +257,7 @@ def _artifact_extractor_impl(ctx):
     runfiles = ctx.runfiles(files = [artifact_file])
     return [DefaultInfo(executable = script, runfiles = runfiles)]
 
-_artifact_extractor = rule(
+artifact_extractor = rule(
     implementation = _artifact_extractor_impl,
     attrs = {
         "artifact": attr.label(
