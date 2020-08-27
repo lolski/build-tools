@@ -178,7 +178,7 @@ if not exist "%DEST_PATH%" mkdir %DEST_PATH%
 mkdir temp-artifact-extracted
 7z x -otemp-artifact-extracted {artifact_location}
 robocopy temp-artifact-extracted\\{artifact_unpacked_name} %DEST_PATH% /E /MOVE
-rmdir temp-artifact-extracted
+rmdir /S /Q temp-artifact-extracted
 
 """
 
@@ -280,3 +280,4 @@ artifact_extractor = rule(
     },
     executable = True,
 )
+
