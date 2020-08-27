@@ -175,8 +175,10 @@ rm -rf {artifact_unpacked_name}
 cmd_script_template_unzip = """\
 set DEST_PATH=%BUILD_WORKSPACE_DIRECTORY:/=\\%\\%1
 if not exist "%DEST_PATH%" mkdir %DEST_PATH%
-7z x -o%DEST_PATH%\\ {artifact_location}
-robocopy %DEST_PATH%\\{artifact_unpacked_name} %DEST_PATH% /E /MOVE
+mkdir temp-artifact-extracted
+7z x -otemp-artifact-extracted {artifact_location}
+robocopy temp-artifact-extracted\\{artifact_unpacked_name} %DEST_PATH% /E /MOVE
+rmdir temp-artifact-extracted
 
 """
 
