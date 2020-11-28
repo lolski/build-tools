@@ -10,12 +10,12 @@ GITHUB_TOKEN = os.getenv('RELEASE_NOTES_TOKEN')
 if GITHUB_TOKEN is None:
     raise Exception("$RELEASE_NOTES_TOKEN is not set!")
 
-if len(sys.argv) < 3:
-    raise Exception("Arguments: <repo-name> <milestone-name>")
+if len(sys.argv) < 4:
+    raise Exception("Arguments: <org-name> <repo-name> <milestone-name> <release-template-file>")
 
-graknlabs = 'graknlabs'
+orgname = sys.argv[1]
 github_connection = github.Github(GITHUB_TOKEN)
-github_org = github_connection.get_organization(graknlabs)
+github_org = github_connection.get_organization(orgname)
 
 release_notes_template_regex = r'{.*release notes.*}'
 
@@ -32,9 +32,9 @@ def pull_request_notes(pull_request):
     return pull_notes
 
 if __name__ == '__main__':
-    release_repo_name = sys.argv[1]
-    release_milestone_title = sys.argv[2]
-    release_template_file = sys.argv[3]
+    release_repo_name = sys.argv[2]
+    release_milestone_title = sys.argv[3]
+    release_template_file = sys.argv[4]
 
     print("release repo: " + release_repo_name)
     print("release milestone: " + release_milestone_title)
