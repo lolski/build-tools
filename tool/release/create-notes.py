@@ -14,6 +14,7 @@ if len(sys.argv) < 4:
     raise Exception("Arguments: <org-name> <repo-name> <milestone-name> <release-template-file>")
 
 orgname = sys.argv[1]
+print("orgname = " + orgname)
 github_connection = github.Github(GITHUB_TOKEN)
 github_org = github_connection.get_organization(orgname)
 
