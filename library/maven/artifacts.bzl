@@ -72,6 +72,7 @@ artifacts = {
     "info.picocli:picocli": "4.3.2",
     "io.cucumber:cucumber-java": "5.1.3",
     "io.cucumber:cucumber-junit": "5.1.3",
+    "io.grakn.client:grakn-client": "60248d4eca3b92f297d0635bdc6b3ce972a38623",
     "io.grpc:grpc-api": "1.33.1",
     "io.grpc:grpc-context": "1.33.1",
     "io.grpc:grpc-core": "1.33.1",
